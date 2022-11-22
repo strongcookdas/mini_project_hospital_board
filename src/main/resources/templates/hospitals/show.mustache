@@ -24,34 +24,40 @@
 <!-- comment -->
 <div class="container">
     <h2>Comment</h2>
-    <form class="container">
-        <input type="hidden" name="articleId" value={{id}}>
+    <form class="container" action="/review/new" method="post">
+        <input type="hidden" name="id" value={{id}}>
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input class="form-control" name="title">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Content</label>
+            <input class="form-control" name="content">
+        </div>
         <div class="mb-3">
             <label class="form-label">Name</label>
-            <input class="form-control" name="name">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Comment</label>
-            <input class="form-control" name="comment">
+            <input class="form-control" name="patientName">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="/board" >back</a>
+        <a href="/hospital" >back</a>
     </form>
     <hr>
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">Name</th>
+            <th scope="col">Title</th>
             <th scope="col">Comment</th>
+            <th scope="col">Name</th>
         </tr>
         </thead>
         <tbody class="table">
-        {{#comments}}
+        {{#reviews}}
             <tr>
-                <td>{{name}}</td>
-                <td>{{comment}}</td>
+                <td>{{title}}</td>
+                <td>{{content}}</td>
+                <td>{{patientName}}</td>
             </tr>
-        {{/comments}}
+        {{/reviews}}
         </tbody>
     </table>
 </div>
